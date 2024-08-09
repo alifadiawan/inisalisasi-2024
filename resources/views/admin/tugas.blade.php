@@ -1,6 +1,7 @@
 @extends('layout.main')
+@section('page-heading', 'Penugasan | Dashboard Tugas')
 @section('content')
-    
+
     <div class="row">
         <div class="col">
             <div class="card">
@@ -30,8 +31,8 @@
                                                     <li class="fw-bold" style="color: black">{{ $subTask->task_name }}</li>
                                                     <div class="control">
                                                         <a href="{{ route('task.show', $subTask->id) }}"
-                                                            class="text-secondary">edit</a>
-                                                        <a href="" class="text-secondary">delete</a>
+                                                            class="text-secondary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                        <a href="" class="text-secondary"><i class="fa-solid fa-trash-can"></i></a>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
@@ -62,8 +63,8 @@
                                 <tr>
                                     <td>{{ $item->task_group_name }}</td>
                                     <td class="text-end">
-                                        <a href="" class="btn btn-sm btn-danger">Delete</a>
-                                        <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                        <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -96,16 +97,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="{{ route('task-group.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="">Nama Tugas</label>
                             <input type="text" class="form-control" name="task_group_name"
                                 placeholder="INISIALISASI DAY - 1">
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <input type="submit" class="btn btn-primary" value="Save changes">
+                    </form>
                 </div>
             </div>
         </div>

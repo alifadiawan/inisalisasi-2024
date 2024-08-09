@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FileManagerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileUploadController;
@@ -32,9 +33,7 @@ Route::get('/penugasan/d1t1', function () {
 
 
 // ADMIN
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+Route::get('/dashboard', [AdminController::class, 'index']);
 
 // News Controller
 Route::resource('/admin/berita-dan-pengumuman', NewsController::class);
@@ -50,4 +49,5 @@ Route::resource('task-group', TaskGroupController::class);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/authenticate', [LoginController::class, 'login'])->name('login');
 
-Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
+// Route::post('/upload', [FileUploadController::class, 'store'])->name('file.upload');
+Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('file.upload');

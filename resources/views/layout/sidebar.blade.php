@@ -3,7 +3,8 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="{{ asset('assets/images/logo/logo.svg')}}" alt="Logo" srcset=""></a>
+                    <a href="/dashboard"><img src="{{ asset('inis/images/logoangkatan.png')}}" alt="Logo"  srcset="" style="width: 50px; height: 50px"></a>
+                    {{-- <a href="/dashboard"><img src="{{ asset('inis/images/logoangkatan.png')}}" alt="Logo"  srcset="" style="width: 50px; height: 50px"></a> --}}
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

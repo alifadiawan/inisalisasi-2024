@@ -9,6 +9,8 @@ class FileManager extends Model
 {
     use HasFactory;
 
+    protected $table = 'file_managers';
+
     protected $fillable = ['SubTask_id', 'user_id', 'file_name', 'file_path'];
 
     public function subTask()

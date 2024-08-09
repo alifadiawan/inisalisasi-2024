@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         //     'task_group_name' => 'INISIALISASI Day 4'
         // ]);
         // User::factory(100)->create();
-        FileManager::factory(100)->create();
+        FileManager::factory(200)->create();
 
         // FileManager::create([
         //     'SubTask_id' => 1,

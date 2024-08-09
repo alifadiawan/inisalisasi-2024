@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('page-heading', 'Penugasan | Task Manager')
 @section('content')
     <div class="row">
         <div class="col">

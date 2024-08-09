@@ -34,19 +34,15 @@ class TaskTable extends DataTableComponent
             MultiSelectFilter::make('Nama Kelompok')
                 ->options(
                     User::query()
-                        ->orderBy('name')
+                        ->orderBy('kelompok')
                         ->get()
+                        ->unique('kelompok')
                         ->keyBy('id')
-                        ->map(fn($tag) => $tag->name)
+                        ->map(fn($tag) => $tag->kelompok)
                         ->toArray()
                 )
                 ->filter(function (Builder $builder, string $value) {
-                    if ($value === 'rupert') {
-                        $builder->where('rupert', true);
-                    } elseif ($value === '@example.com') {
-
-                        $builder->where('@example.com', false);
-                    }
+                    $builder->where($value, true);
                 }),
         ];
     }
@@ -62,7 +58,7 @@ class TaskTable extends DataTableComponent
             Column::make("Nama Mahasiswa", "user.name")
                 ->searchable()
                 ->sortable(),
-            Column::make("Nama Kelompok", "user.email")
+            Column::make("Nama Kelompok", "user.kelompok")
                 ->searchable()
                 ->sortable(),
             DateColumn::make("Batas Pengumpulan", "subTask.task_due")
@@ -72,8 +68,8 @@ class TaskTable extends DataTableComponent
             DateColumn::make("Dikumpulkan pada", "created_at")
                 ->outputFormat('d M H:i:s')
                 ->sortable(),
-            LinkColumn::make("Tugas", "file_path")
-                ->title(fn($row) => 'Lihat')
+            LinkColumn::make("Actions", "file_path")
+                ->title(fn($row) => 'View')
                 ->location(
                     fn($row) => url('#')
                 )

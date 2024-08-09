@@ -18,7 +18,7 @@ class FileManagerFactory extends Factory
     {
         return [
             'SubTask_id' => $this->faker->numberBetween(1, 2),  // Example field
-            'user_id' => $this->faker->numberBetween(1, 100),  // Example field
+            'user_id' => $this->faker->numberBetween(2, 100),  // Example field
             'file_name' => $this->faker->filePath(),  // Example field
             'file_path' => $this->faker->filePath(),  // Example field
             // Add other fields as necessary

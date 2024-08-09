@@ -24,7 +24,7 @@
             </header>
 
             <div class="page-heading">
-                <h3>Dashboard</h3>
+                <h3>@yield('page-heading')</h3>
             </div>
             <div class="page-content">
                 @yield('content')
@@ -43,7 +43,7 @@
             </footer>
         </div>
     </div>
-    
+
     @livewireScripts
     @include('layout.script')
 

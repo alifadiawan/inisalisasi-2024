@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('page-heading', 'Dashboard | Berita & Pengumuman')
 @section('content')
     <div class="row">
         <div class="col-lg-3 col-12">
@@ -6,8 +7,8 @@
                 <div class="card-body px-4 py-4-5">
                     <div class="row">
                         <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon purple mb-2">
-                                <i class="iconly-boldShow"></i>
+                            <div class="stats-icon blue mb-2">
+                                <i class="fa-solid fa-newspaper fa-2xl"></i>
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
@@ -23,8 +24,8 @@
                 <div class="card-body px-4 py-4-5">
                     <div class="row">
                         <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                            <div class="stats-icon purple mb-2">
-                                <i class="iconly-boldShow"></i>
+                            <div class="stats-icon green mb-2">
+                                <i class="fa-solid fa-envelope fa-2xl"></i>
                             </div>
                         </div>
                         <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">

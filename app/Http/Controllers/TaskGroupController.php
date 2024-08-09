@@ -20,7 +20,7 @@ class TaskGroupController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -28,7 +28,11 @@ class TaskGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TaskGroup::insert([
+            'task_group_name' => $request->task_group_name
+        ]);
+
+        return redirect()->back()->with('success', 'Tugas berhasil ditambahkan');
     }
 
     /**
