@@ -15,13 +15,14 @@ class FileUploadController extends Controller
 {
     public function fileUpload(Request $request, $id)
     {
+
         $request->validate([
             'file' => 'required|file|mimes:jpg,jpeg,png,pdf|max:102400',
         ]);
 
         $subTask = SubTask::find($id);
 
-        // initialised 
+        // initialised
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
 
         // if not uploaded

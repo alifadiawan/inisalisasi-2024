@@ -18,14 +18,15 @@ class UserController extends Controller
     public function show($task_group_name, $id){
         $allTask = TaskGroup::with('subTasks')->get();
         $data = TaskGroup::with('subTasks')->findOrFail($id);
-        return view('pages.penugasan.detail_penugasan', compact('data', 'allTask'));
+        $subTask = SubTask::findOrFail($id);$subTask = SubTask::findOrFail($id);
+        return view('pages.penugasan.detail_penugasan', compact('data', 'allTask', 'subTask'));
     }
 
     public function task_detail($task_name , $id){
         $uploadedFiles = FileManager::where('SubTask_id', $id)
                                     ->where('user_id', Auth::id())
                                     ->get();
-        
+
         $subTask = SubTask::findOrFail($id);
         return view('pages.penugasan.subDetail', compact('subTask', 'uploadedFiles'));
     }

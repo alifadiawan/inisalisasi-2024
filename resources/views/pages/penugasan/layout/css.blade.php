@@ -263,12 +263,12 @@
 
     /* ======================= Cards ====================== */
     .cardBox {
-        position: relative;
-        width: 100%;
-        padding: 20px;
-        display: block;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 30px;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: inline-block;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
     }
 
     .cardBox .card {
@@ -559,10 +559,12 @@
         display: block;
     }
 
-    .logo-img {
-        max-width: 60px;
-        max-height: 60px;
-        width: auto;
-        height: auto;
+
+.highlight {
+        color: #e74c3c;
+        font-weight: bold;
+        font-size: 0.8rem;
+         margin-top: 5px;
     }
+
 </style>

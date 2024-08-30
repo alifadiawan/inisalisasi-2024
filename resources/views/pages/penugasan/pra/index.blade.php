@@ -13,8 +13,8 @@
                 <div>
                     <div class="cardName">ID Card</div>
                 </div>
-                <div class="iconBx">
-                    <ion-icon name="id-card-outline"></ion-icon>
+                <div class="">
+                    <span class="highlight">30 August 2024, 07:00 PM</span>
                 </div>
             </div>
         </a>
