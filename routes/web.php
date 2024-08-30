@@ -125,7 +125,11 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/task-manager', [SubTaskController::class, 'list_tugas']);
     Route::resource('task', SubTaskController::class);
     Route::resource('task-group', TaskGroupController::class);
+    Route::get('/task-delete/{id}', [SubTaskController::class, 'delete'])->name('task.delete');
+    Route::get('/task-group/delete/{id}', [TaskGroupController::class, 'delete'])->name('taskGroup.delete');
 
+    // Maba
+    Route::get('users', [AdminController::class, 'maba']);
 });
 
 // maba aja yang bisa akses
@@ -157,12 +161,15 @@ Route::group([], function () {
 
 // News Controller
 Route::resource('/admin/berita-dan-pengumuman', NewsController::class);
+Route::get('/berita-&-Pengumuman', [NewsController::class, 'user_index']);
+Route::get('/berita-&-Pengumuman/{news_title}/{id}', [NewsController::class, 'user_show'])->name('berita.show');
+
 
 // login
 Route::get('/login', [LoginController::class, 'index']);
 Route::get('/login-maba', [LoginController::class, 'Mabaindex']);
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('login');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::GET('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/set-password', [MabaController::class, 'setPassword'])->name('setPassword');
 

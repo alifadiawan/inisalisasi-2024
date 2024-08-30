@@ -6,7 +6,6 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 use App\Models\FileManager;
-use App\Models\SubTask;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -57,7 +56,8 @@ class TaskTable extends DataTableComponent
     {
         return [
             Column::make("Id", "id")
-                ->sortable(),
+                ->sortable()
+                ->collapseOnMobile(),
             Column::make("Nama Tugas", "subTask.task_name")
                 ->searchable()
                 ->sortable(),
@@ -66,14 +66,17 @@ class TaskTable extends DataTableComponent
                 ->sortable(),
             Column::make("Nama Kelompok", "user.kelompok")
                 ->searchable()
-                ->sortable(),
+                ->sortable()
+                ->collapseOnMobile(),
             DateColumn::make("Batas Pengumpulan", "subTask.task_due")
                 ->inputFormat('Y-m-d H:i:s')
                 ->outputFormat('d M H:i:s')
-                ->sortable(),
+                ->sortable()
+                ->collapseOnMobile(),
             DateColumn::make("Dikumpulkan pada", "created_at")
                 ->outputFormat('d M H:i:s')
-                ->sortable(),
+                ->sortable()
+                ->collapseOnMobile(),
             LinkColumn::make("Actions", "file_path")
                 ->title(fn($row) => 'View')
                 ->location(
@@ -84,7 +87,8 @@ class TaskTable extends DataTableComponent
                     'data-bs-toggle' => "modal",
                     'data-bs-target' => '#exampleModal' . $row->id,
                 ])
-                ->sortable(),
+                ->sortable()
+                ->collapseOnMobile(),
         ];
     }
 }

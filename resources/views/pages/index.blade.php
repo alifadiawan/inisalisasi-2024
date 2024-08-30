@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="{{ asset('inis/images/logoangkatan.png')}}">
+    <link rel="shortcut icon" href="inis/images/logoangkatan.png">
 
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap5" />
@@ -63,7 +63,7 @@
                             <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
                                 <li class="active"><a href="index.html">Home</a></li>
                                 <li><a href="#tatatertib">Tata Tertib</a></li>
-                                <li><a href="#">Berita & Pengumuman</a></li>
+                                <li><a href="/berita-&-Pengumuman">Berita & Pengumuman</a></li>
                                 @auth
                                     <li><a href="/penugasan/index">Penugasan</a></li>
                                 @endauth
@@ -88,17 +88,6 @@
                                 <span></span>
                             </a>
                         </div>
-                        {{-- <div class="col-3 text-end">
-                            <a href="#"
-                                class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-                                <span></span>
-                            </a>
-
-                            <a href="#" class="call-us d-flex align-items-center">
-                                <span class="icon-phone"></span>
-                                <span>123-489-9381</span>
-                            </a>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -148,15 +137,15 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('inis/images/fotbar-2.jpg') }}" class="d-block w-100"
+                                <img src="inis/images/fotbar-2.jpg" class="d-block w-100"
                                     alt="foto-inis">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('inis/images/IMG_7779.jpg') }}" class="d-block w-100"
+                                <img src="inis/images/IMG_7779.jpg}" class="d-block w-100"
                                     alt="foto-inis">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('inis/images/IMG_8923.jpg') }}" class="d-block w-100"
+                                <img src="inis/images/IMG_8923.jpg" class="d-block w-100"
                                     alt="foto-inis">
                             </div>
                         </div>

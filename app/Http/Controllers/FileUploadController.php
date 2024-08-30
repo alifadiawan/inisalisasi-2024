@@ -15,18 +15,18 @@ class FileUploadController extends Controller
 {
     public function fileUpload(Request $request, $id)
     {
-        $subTask = SubTask::find($id); 
+        $request->validate([
+            'file' => 'required|file|mimes:jpg,jpeg,png,pdf|max:102400',
+        ]);
 
-        if (\Carbon\Carbon::now() >= \Carbon\Carbon::parse($subTask->task_due)) {
-            return redirect()->back()->with('error', 'The deadline for this task has passed.');
-        }
+        $subTask = SubTask::find($id);
 
         // initialised 
         $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
 
         // if not uploaded
         if (!$receiver->isUploaded()) {
-            return redirect()->back()->with('error', 'Check your internet connection');
+            return redirect()->back()->with('error', 'Cek koneksi internet kamu');
         }
 
         $fileReceived = $receiver->receive();
@@ -53,8 +53,6 @@ class FileUploadController extends Controller
                 'file_name' => $filename,
                 'file_path' => $path
             ]);
-
-
         }
 
         $handler = $fileReceived->handler();
@@ -66,12 +64,16 @@ class FileUploadController extends Controller
 
     public function store(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'isLinks' => 'required|url',
+        ]);
+
         FileManager::create([
             'SubTask_id' => $id,
             'user_id' => Auth::id(),
             'file_name' => "-",
             'file_path' => '-',
-            'file_links' => $request->isLinks
+            'file_links' => $validatedData['isLinks']
         ]);
 
         return redirect()->back();

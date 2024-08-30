@@ -20,7 +20,7 @@ class LoginController extends Controller
     }
     public function authenticate(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'login' => 'required',
             'password' => 'nullable|string',
         ]);

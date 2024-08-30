@@ -11,7 +11,7 @@
                         </div>
                         <div class="ms-3 name">
                             <h5 class="font-bold">Hallo, {{ Auth::user()->name }}</h5>
-                            <form action="{{ route('logout') }}" method="POST">
+                            <form action="{{ route('logout') }}" method="GET">
                                 @csrf
                                 <input type="submit" class="btn btn-sm btn-danger mb-0" value="Logout" />
                             </form>

@@ -23,6 +23,15 @@
                         <span class="title">Inisialisasi 2024</span>
                     </a>
                 </li>
+                <li class="{{ request()->is('penugasan*') ? 'active' : '' }}">
+                    <a
+                        href="/penugasan/index">
+                        <span class="icon">
+                            <ion-icon name="today-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
                 @foreach ($allTask as $taskGroup)
                     <li class="{{ request()->is('penugasan*') ? 'active' : '' }}">
                         <a
@@ -44,7 +53,7 @@
 
                 <div class="header">
                     <label>
-                        <h1> penugasan </h1>
+                        <h1> Penugasan - {{ Request::segment(2) }}</h1>
                     </label>
                 </div>
 
@@ -56,10 +65,14 @@
             <!-- === Cards === -->
             <div class="cardBox">
                 @foreach ($data->subTasks as $subTask)
-                    <a href="{{ route('task.detail', ['task_name' => $subTask->task_name, 'id' => $subTask->id]) }}">
+                    <a href="{{ route('task.detail', ['task_name' => $subTask->task_name, 'id' => $subTask->id]) }}"
+                        style="text-decoration: none;">
                         <div class="card">
-                            <div>
+                            <div class="cardContent">
                                 <div class="cardName">{{ $subTask->task_name }}</div>
+                                <div class="cardDue" style="color: red">
+                                    {{ \Carbon\Carbon::parse($subTask->task_due)->format('d F Y, h:i A') }}
+                                </div>
                             </div>
                         </div>
                     </a>

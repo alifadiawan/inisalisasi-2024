@@ -67,4 +67,13 @@ class TaskGroupController extends Controller
     {
         //
     }
+
+    public function delete($id){
+
+        $data = TaskGroup::find($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Tugas Berhasil Dihapus');
+
+    }
 }

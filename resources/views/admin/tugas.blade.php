@@ -47,7 +47,7 @@
                                                         <a href="{{ route('task.edit', $subTask->id) }}"
                                                             class="text-secondary"><i
                                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                                        <a href="" class="text-secondary"><i
+                                                        <a href="{{ route('task.delete', $subTask->id) }}" class="text-secondary"><i
                                                                 class="fa-solid fa-trash-can"></i></a>
                                                     </div>
                                                 </div>
@@ -78,9 +78,7 @@
                                 <tr>
                                     <td>{{ $item->task_group_name }}</td>
                                     <td class="text-end">
-                                        <a href="" class="btn btn-sm btn-warning"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="" class="btn btn-sm btn-danger"><i
+                                        <a href="{{ route('taskGroup.delete', $item->id) }}" class="btn btn-sm btn-danger"><i
                                                 class="fa-solid fa-trash-can"></i></a>
                                     </td>
                                 </tr>
