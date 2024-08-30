@@ -71,4 +71,19 @@ class NewsController extends Controller
     {
         //
     }
+
+    public function user_index(){
+        
+        $news = news::all();
+        return view('berita.index', compact('news'));
+
+    }
+
+    public function user_show($id){
+
+        $current_news = news::find($id);
+        return view('berita.show', compact('current_news'));
+
+    }
+
 }

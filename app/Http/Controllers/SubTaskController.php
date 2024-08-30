@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\FileManager;
-use App\Models\sub_task;
 use App\Models\SubTask;
-use App\Models\task_group;
 use App\Models\TaskGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Benchmark;
+
 
 class SubTaskController extends Controller
 {
@@ -93,5 +93,14 @@ class SubTaskController extends Controller
     public function destroy( $sub_task)
     {
         //
+    }
+
+    public function delete($id){
+
+        $data = SubTask::find($id);
+        $data->delete();
+
+        return redirect()->back()->with('success', 'Tugas Berhasil Dihapus');
+
     }
 }

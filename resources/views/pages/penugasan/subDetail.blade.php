@@ -16,7 +16,7 @@
         <button class="btn-back" onclick="window.history.back()">
             <i class="bi bi-arrow-left"></i>
         </button>
-        <h1>Penugasan</h1>
+        <h1>Penugasan {{ Request::segment(3) }}</h1>
     </div>
     <div class="container mt-4">
         <div data-v-373b54c8=""
@@ -37,10 +37,6 @@
                 @if (!$uploadedFiles->isEmpty())
                     <div class="alert alert-primary">
                         <p class="text-center">Sudah Mengumpulkan</p>
-                    </div>
-                @elseif (\Carbon\Carbon::now() >= $subTask->task_due)
-                    <div class="alert alert-warning">
-                        <p class="text-center">Maaf, Udah lewat tenggat :(</p>
                     </div>
                 @elseif ($subTask->isLinks == 'on')
                     <form action="{{ route('upload.link', $subTask->id) }}" method="post">

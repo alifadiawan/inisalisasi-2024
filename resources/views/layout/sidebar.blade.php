@@ -64,21 +64,6 @@
                     </a>
                 </li>
 
-                {{-- <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-stack"></i>
-                        <span>Penugasan</span>
-                    </a>
-                    <ul class="submenu {{ (request()->is('task*')) ? 'active' : '' }}">
-                        <li class="submenu-item {{ (request()->is('task')) ? 'active' : '' }}">
-                            <a href="/task">Dashboard Tugas</a>
-                        </li>
-                        <li class="submenu-item {{ (request()->is('task-manager')) ? 'active' : '' }}">
-                            <a href="/task-manager">Task Manager</a>
-                        </li>
-                    </ul>
-                </li> --}}
-
 
                 <li class="sidebar-title fw-bold">Berita & Pengumuman</li>
 
@@ -90,6 +75,14 @@
                     </a>
                 </li>
 
+                <li class="sidebar-title fw-bold">Users</li>
+
+                <li class="sidebar-item {{ (request()->is('users')) ? 'active' : '' }}">
+                    <a href="/users" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Maba</span>
+                    </a>
+                </li>
                 {{-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-journal-check"></i>
